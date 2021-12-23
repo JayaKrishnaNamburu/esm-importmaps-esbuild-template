@@ -31,12 +31,13 @@ const buildParams = {
   entryPoints: ['src/index.tsx'],
   loader: { '.ts': 'tsx' },
   outdir: 'dist',
-  minify: !isDev,
-  format: 'cjs',
+  // minify: !isDev,
+  format: 'esm',
   bundle: true,
   sourcemap: true,
   logLevel: 'error',
-  incremental: true
+  incremental: true,
+  external: ['react', 'react-dom', 'react-helmet', 'prop-types', 'react-router-dom']
 }
 ;(async () => {
   fs.removeSync('dist')
